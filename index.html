@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edward Moiseev - Cybersecurity Specialist</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ffffff;
+            --secondary-color: #2563eb;
+            --accent-color: #3b82f6;
+            --text-color: #1f2937;
+            --heading-color: #1e40af;
+            --card-bg: #ffffff;
+            --hover-color: #dbeafe;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes slideIn {
+            from { 
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 2rem;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+            padding: 4rem 0;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.2);
+        }
+
+        .header-content {
+            text-align: center;
+            color: white;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #ffffff, #dbeafe);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -1px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-info a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-section {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            margin: 2rem 0;
+            border-radius: 20px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-section:hover::before {
+            transform: scaleX(1);
+        }
+
+        .profile-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(37, 99, 235, 0.15);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--heading-color);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-title::before {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 3px;
+            background: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .skill-item {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-item::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
+            z-index: -1;
+            border-radius: 14px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .skill-item:hover::before {
+            opacity: 1;
+        }
+
+        .skill-item:hover {
+            color: white;
+            transform: translateY(-3px) scale(1.02);
+        }
+
+        .experience-card {
+            background: white;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            border-radius: 16px;
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .experience-card:hover {
+            border-color: var(--secondary-color);
+            transform: translateX(10px);
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.1);
+        }
+
+        .experience-card h3 {
+            color: var(--heading-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 1.5rem;
+        }
+
+        ul li {
+            position: relative;
+            margin-bottom: 1rem;
+            padding-left: 1rem;
+        }
+
+        ul li::before {
+            content: '→';
+            color: var(--secondary-color);
+            position: absolute;
+            left: -1.5rem;
+            font-weight: bold;
+        }
+
+        .languages {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+
+        .language-tag {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .language-tag:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(to right, var(--accent-color), var(--secondary-color));
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .profile-section {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--secondary-color);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="container">
+                <h1>EDWARD MOISEEV</h1>
+                <p style="font-size: 1.5rem; margin-top: 1rem; font-weight: 300;">Computer Science Student & Cybersecurity Specialist</p>
+                <div class="contact-info">
+                    <a href="mailto:edward.moiseev@gmail.com"><i class="fas fa-envelope"></i> edward.moiseev@gmail.com</a>
+                    <a href="tel:0534249063"><i class="fas fa-phone"></i> 053-424-9063</a>
+                    <a href="#"><i class="fas fa-map-marker-alt"></i> Haifa, Israel</a>
+                </div>
+                <div class="languages">
+                    <span class="language-tag">English</span>
+                    <span class="language-tag">Hebrew</span>
+                    <span class="language-tag">Russian</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+<main class="container">
+        <section class="profile-section">
+            <h2 class="section-title"><i class="fas fa-user"></i> Profile</h2>
+            <p>Dedicated Computer Science student with comprehensive experience in cybersecurity, compliance, and software development. Skilled in audit planning, compliance assessments, and security protocol implementation. Proficient in policy documentation and risk assessment, with expertise in securing and governing AI-driven systems. Known for strong analytical thinking, attention to detail, and the ability to navigate complex regulatory environments while producing efficient and clean code.</p>
+        </section>
+
+        <section class="profile-section">
+            <h2 class="section-title"><i class="fas fa-code"></i> Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item">Cybersecurity & Compliance</div>
+                <div class="skill-item">Risk Management</div>
+                <div class="skill-item">Python</div>
+                <div class="skill-item">C++</div>
+                <div class="skill-item">JavaScript</div>
+                <div class="skill-item">SQL</div>
+                <div class="skill-item">Wireshark</div>
+                <div class="skill-item">GitHub</div>
+                <div class="skill-item">AWS/Azure</div>
+                <div class="skill-item">Visual Studio</div>
+            </div>
+        </section>
+
+        <section class="profile-section">
+            <h2 class="section-title"><i class="fas fa-briefcase"></i> Professional Experience</h2>
+            
+            <div class="experience-card">
+                <h3><i class="fas fa-shield-alt"></i> Cybersecurity Specialist & Software Developer</h3>
+                <p><i class="fas fa-building"></i> Israel Electric Corporation | Sep 2023 - Present</p>
+                <ul>
+                    <li>Developed and implemented cybersecurity policies, ensuring alignment with regulatory standards</li>
+                    <li>Led audit-related documentation efforts, gathering and organizing evidence for security assessments</li>
+                    <li>Developed automation scripts to improve efficiency in internal processes</li>
+                    <li>Assisted in evaluating security controls and proposing improvements to strengthen security posture</li>
+                    <li>Participated in vulnerability assessment tasks, showcasing attention to detail and analytical skills</li>
+                    <li>Collaborated with senior engineers to implement software development best practices</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="profile-section">
+            <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
+            <div class="experience-card">
+                <h3>Bachelor of Science: Computer Science</h3>
+                <p><i class="fas fa-university"></i> University Of Haifa</p>
+                <p style="margin-top: 0.5rem;">Relevant coursework: Data Structures, Algorithms, Software Engineering, Cybersecurity, Network Security, Machine Learning, Compliance Management</p>
+                <p style="margin-top: 0.5rem;"><i class="fas fa-award"></i> Psychometric Test Score: 709</p>
+            </div>
+        </section>
+
+        <section class="profile-section">
+            <h2 class="section-title"><i class="fas fa-star"></i> Key Competencies</h2>
+            <div class="experience-card">
+                <h3><i class="fas fa-laptop-code"></i> Technical Expertise</h3>
+                <ul>
+                    <li>Audit Planning & Regulatory Compliance</li>
+                    <li>Security Controls Management</li>
+                    <li>Risk Assessment & Documentation</li>
+                    <li>Process Automation & Optimization</li>
+                    <li>Software Testing & Debugging</li>
+                    <li>Version Control & Collaboration</li>
+                </ul>
+            </div>
+            <div class="experience-card">
+                <h3><i class="fas fa-brain"></i> Soft Skills</h3>
+                <ul>
+                    <li>Strong analytical thinking</li>
+                    <li>Effective communication</li>
+                    <li>Team collaboration</li>
+                    <li>Problem-solving</li>
+                    <li>Adaptability in dynamic environments</li>
+                    <li>High attention to detail</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="profile-section">
+            <h2 class="section-title"><i class="fas fa-hand-holding-heart"></i> Volunteering</h2>
+            <div class="experience-card">
+                <h3>Distribution Coordinator</h3>
+                <p><i class="fas fa-building"></i> Latet | Oct 2022 - Present</p>
+                <ul>
+                    <li>Managed logistics for monthly food distribution to over 100 Holocaust survivors</li>
+                    <li>Received a Certificate of Excellence in 2021 for consistent leadership</li>
+                    <li>Demonstrated strong organizational skills and responsibility</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="profile-section">
+            <h2 class="section-title"><i class="fas fa-medal"></i> Military Service</h2>
+            <div class="experience-card">
+                <h3>Combat Artillery Soldier</h3>
+                <p><i class="fas fa-fighter-jet"></i> IDF | 2.8 Years</p>
+                <ul>
+                    <li>Developed adaptability and teamwork under high-stress conditions</li>
+                    <li>Intelligence unit 8200</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2024 Edward Moiseev. All rights reserved.</p>
+        </div>
+    </footer></body>
+</html>
