@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="he">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Edward Moiseev - מומחה סייבר</title>
+  <title>Edward Moiseev - Cybersecurity Specialist</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
@@ -50,14 +50,11 @@
        HEADER
     ----------------------------------------------------------- */
     header {
-      position: relative;
       background: linear-gradient(135deg, #6f72ff, #3b82f6);
       color: #fff;
-      text-align: center;
-      padding: 5rem 2rem;
-      overflow: hidden;
+      padding: 3rem 2rem;
+      position: relative;
       clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-      transition: all 0.3s ease;
       margin-bottom: 4rem;
     }
 
@@ -94,36 +91,40 @@
       100% { transform: translateY(0) rotate(360deg); }
     }
 
-    .header-content {
-      position: relative;
-      z-index: 2;
-      animation: floatTitle 6s ease-in-out infinite;
-    }
-
-    @keyframes floatTitle {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-      100% { transform: translateY(0); }
-    }
-
     .header-container {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
-      gap: 1.5rem;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .header-left, .header-right {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .header-left {
+      text-align: left;
+    }
+
+    .header-right {
+      text-align: left;
     }
 
     h1 {
-      font-size: 3.5rem;
+      font-size: 3rem;
       font-weight: 700;
-      letter-spacing: -1px;
       color: #fff;
-      text-shadow: 0 0 15px rgba(0,0,0,0.3);
+      text-shadow: 0 0 10px rgba(0,0,0,0.3);
       margin-bottom: 0.5rem;
     }
+
     header p {
       font-size: 1.2rem;
-      margin-top: 0.5rem;
       font-weight: 400;
       opacity: 0.9;
     }
@@ -132,13 +133,13 @@
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
-      justify-content: center;
-      margin-top: 2rem;
+      margin-top: 1rem;
     }
+
     .contact-info a {
       color: #fff;
       background: rgba(255, 255, 255, 0.15);
-      padding: 0.8rem 1.5rem;
+      padding: 0.6rem 1rem;
       border-radius: 50px;
       backdrop-filter: blur(8px);
       display: flex;
@@ -146,7 +147,9 @@
       gap: 0.5rem;
       transition: transform 0.3s ease, background 0.3s;
       font-weight: 500;
+      font-size: 0.9rem;
     }
+
     .contact-info a:hover {
       background: rgba(255, 255, 255, 0.25);
       transform: translateY(-4px);
@@ -156,20 +159,21 @@
     .languages {
       display: flex;
       gap: 1rem;
-      justify-content: center;
-      margin-top: 1.5rem;
+      margin-top: 1rem;
       flex-wrap: wrap;
     }
+
     .language-tag {
       background: rgba(255, 255, 255, 0.2);
       color: #fff;
-      padding: 0.6rem 1.2rem;
+      padding: 0.5rem 1rem;
       border-radius: 50px;
       backdrop-filter: blur(10px);
       transition: 0.3s ease;
       font-weight: 500;
       font-size: 0.9rem;
     }
+
     .language-tag:hover {
       background: rgba(255, 255, 255, 0.35);
       transform: scale(1.05);
@@ -199,6 +203,7 @@
       gap: 1rem;
       position: relative;
     }
+
     .section-title::before {
       content: '';
       width: 40px;
@@ -212,10 +217,11 @@
     ----------------------------------------------------------- */
     .profile-and-side {
       display: flex;
+      flex-direction: row;
       gap: 2rem;
       align-items: flex-start;
-      margin-bottom: 4rem;
       flex-wrap: wrap;
+      margin-bottom: 4rem;
     }
 
     .profile-section {
@@ -265,7 +271,7 @@
     ----------------------------------------------------------- */
     .projects-section {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
       gap: 2rem;
       margin-top: 2rem;
     }
@@ -281,13 +287,17 @@
       animation: scaleIn 0.7s ease-out forwards;
       transform: scale(0.95);
       opacity: 0;
+      display: flex;
+      flex-direction: column;
     }
+
     @keyframes scaleIn {
       to {
         transform: scale(1);
         opacity: 1;
       }
     }
+
     .project-card:hover {
       transform: translateY(-7px);
       box-shadow: 0 12px 25px rgba(0,0,0,0.15);
@@ -301,8 +311,9 @@
       justify-content: center;
       overflow: hidden;
       position: relative;
-      height: 250px;
+      height: 300px;
     }
+
     .project-image iframe,
     .project-image img {
       width: 100%;
@@ -310,10 +321,12 @@
       object-fit: cover;
       transition: transform 0.3s ease;
     }
+
     .project-card:hover .project-image img,
     .project-card:hover .project-image iframe {
       transform: scale(1.05);
     }
+
     .project-card h4 {
       padding: 1.5rem;
       font-size: 1.5rem;
@@ -321,17 +334,21 @@
       font-weight: 600;
       border-bottom: 1px solid #e5e7eb;
     }
+
     .project-desc {
       padding: 1.5rem;
       font-size: 1rem;
       color: #555;
+      flex: 1;
     }
+
     .project-tags {
       padding: 0 1.5rem 1rem;
       display: flex;
       gap: 0.5rem;
       flex-wrap: wrap;
     }
+
     .project-tags span {
       background: #dbeafe;
       padding: 0.4rem 0.8rem;
@@ -340,16 +357,19 @@
       color: #2563eb;
       transition: all 0.3s ease;
     }
+
     .project-tags span:hover {
       background: #2563eb;
       color: #fff;
     }
+
     .project-links {
       padding: 1rem 1.5rem;
       border-top: 1px solid #e5e7eb;
       display: flex;
       gap: 1.2rem;
     }
+
     .project-link {
       color: #2563eb;
       font-size: 0.95rem;
@@ -360,6 +380,7 @@
       text-decoration: none;
       font-weight: 500;
     }
+
     .project-link:hover {
       color: #3b82f6;
       transform: translateX(5px);
@@ -370,7 +391,7 @@
     ----------------------------------------------------------- */
     .skills-education-section {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
       gap: 2rem;
       margin-top: 2rem;
     }
@@ -423,9 +444,11 @@
       opacity: 0;
       transition: opacity 0.3s ease;
     }
+
     .skill-item:hover::before {
       opacity: 1;
     }
+
     .skill-item:hover {
       color: #fff;
       transform: translateY(-5px) scale(1.03);
@@ -456,26 +479,31 @@
       transform: translateX(-30px);
       opacity: 0;
     }
+
     @keyframes slideIn {
       to {
         transform: translateX(0);
         opacity: 1;
       }
     }
+
     .experience-card:hover {
       border-color: #2563eb;
       box-shadow: 0 8px 20px rgba(37, 99, 235, 0.1);
     }
+
     .experience-card h3 {
       color: #1e40af;
       margin-bottom: 1rem;
       font-size: 1.6rem;
       font-weight: 700;
     }
+
     ul {
       list-style-type: none;
       padding-left: 1.5rem;
     }
+
     ul li {
       position: relative;
       margin-bottom: 1rem;
@@ -483,6 +511,7 @@
       font-size: 1rem;
       color: #555;
     }
+
     ul li::before {
       content: '→';
       color: #2563eb;
@@ -490,6 +519,7 @@
       left: -1.5rem;
       font-weight: bold;
     }
+
     .experience-card i {
       color: #2563eb;
       margin-right: 0.4rem;
@@ -508,6 +538,7 @@
       overflow: hidden;
       clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
     }
+
     footer::before {
       content: '';
       position: absolute;
@@ -518,6 +549,7 @@
       height: 4px;
       background: linear-gradient(to right, #6f72ff, #3b82f6);
     }
+
     footer p {
       position: relative;
       font-size: 0.95rem;
@@ -540,7 +572,7 @@
     ----------------------------------------------------------- */
     @media (max-width: 1024px) {
       h1 {
-        font-size: 3rem;
+        font-size: 2.5rem;
       }
       .section-title {
         font-size: 2.2rem;
@@ -548,15 +580,23 @@
     }
 
     @media (max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
       .profile-and-side {
         flex-direction: column;
       }
+
       .skills-education-section {
         grid-template-columns: 1fr;
       }
+
       .projects-section {
         grid-template-columns: 1fr;
       }
+
       header {
         clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
         padding-bottom: 3rem;
@@ -586,48 +626,38 @@
 <body>
   <!-- HEADER -->
   <header>
-    <div class="header-content">
-      <div class="header-container">
+    <div class="header-container">
+      <!-- Header Left: Name and Contact Info -->
+      <div class="header-left">
         <h1>EDWARD MOISEEV</h1>
-        <p>מומחה סייבר וסטודנט למדעי המחשב</p>
+        <p>Cybersecurity Specialist & Computer Science Student</p>
         <div class="contact-info">
           <a href="mailto:edward.moiseev@gmail.com"><i class="fas fa-envelope"></i> edward.moiseev@gmail.com</a>
           <a href="tel:0534249063"><i class="fas fa-phone"></i> 053-424-9063</a>
-          <a href="#"><i class="fas fa-map-marker-alt"></i> חיפה, ישראל</a>
+          <a href="#"><i class="fas fa-map-marker-alt"></i> Haifa, Israel</a>
         </div>
         <div class="languages">
-          <span class="language-tag">אנגלית</span>
-          <span class="language-tag">עברית</span>
-          <span class="language-tag">רוסית</span>
+          <span class="language-tag">English</span>
+          <span class="language-tag">Hebrew</span>
+          <span class="language-tag">Russian</span>
         </div>
+      </div>
+
+      <!-- Header Right: Profile Section -->
+      <div class="header-right">
+        <h2>Profile</h2>
+        <p>
+          I'm a motivated Computer Science student with a solid foundation in machine learning, artificial intelligence, data science, and cybersecurity risk management. I've gained practical experience with Python programming and am familiar with contemporary machine learning frameworks. Currently, I'm diving into real-world AI applications, such as developing an AI-driven financial analysis tool. I'm excited to apply my skills in machine learning, data analysis, and software development to contribute to impactful projects.
+        </p>
       </div>
     </div>
   </header>
 
   <!-- MAIN -->
   <main class="container">
-    <!-- PROFILE AND SIDE BOX -->
-    <section class="section profile-and-side">
-      <!-- PROFILE SECTION -->
-      <div class="profile-section">
-        <h2 class="section-title"><i class="fas fa-user"></i> פרופיל</h2>
-        <p>
-          אני סטודנט למדעי המחשב עם בסיס מוצק בלמידת מכונה, בינה מלאכותית, מדעי הנתונים וניהול סיכוני סייבר. רכשתי ניסיון מעשי בתכנות בפייתון ומכיר עם מסגרות למידת מכונה עכשוויות. כרגע אני עובד על יישומים אמיתיים של AI, כמו פיתוח כלי ניתוח פיננסי מונחה AI. אני נרגש ליישם את כישוריי בלמידת מכונה, ניתוח נתונים ופיתוח תוכנה כדי לתרום לפרויקטים משמעותיים.
-        </p>
-      </div>
-
-      <!-- SIDE BOX (למשל תמונה או קישורים נוספים) -->
-      <div class="side-box">
-        <h2 class="section-title"><i class="fas fa-info-circle"></i> מידע נוסף</h2>
-        <p>
-          ניתן להוסיף כאן מידע נוסף, תמונה מקצועית, קישורים חברתיים או כל תוכן נוסף שתרצה להציג לצד הפרופיל.
-        </p>
-      </div>
-    </section>
-
     <!-- PROJECTS SECTION -->
     <section class="section projects-section">
-      <h2 class="section-title"><i class="fas fa-code-branch"></i> פרויקטים</h2>
+      <h2 class="section-title"><i class="fas fa-code-branch"></i> Projects</h2>
 
       <!-- Project 1: KESEF AI -->
       <div class="project-card">
@@ -640,7 +670,7 @@
         </div>
         <h4>KESEF AI</h4>
         <p class="project-desc">
-          KESEF AI היא פלטפורמה מתקדמת לניתוח מניות באמצעות גרפים אינטראקטיביים, אינדיקטורים טכניים (כמו RSI, ממוצעים נעים) ונתונים פיננסיים מקיפים כמו שווי שוק, יחס P/E והכנסות. העמוד משלבת ניתוח מונחה AI לספק תובנות מעשיות, תחזיות והצעות לניהול סיכונים. מעוצב כדי להעצים משתמשים בהחלטות מונחות נתונים, הוא מציע חווייה חלקה המשלבת כלים להערכה טכנית, יסודית ומונחית AI של מניות.
+          KESEF AI is an advanced platform for analyzing stocks using interactive charts, technical indicators (e.g., RSI, moving averages), and comprehensive financial data like market cap, P/E ratio, and revenue. The page integrates AI-powered analysis to provide actionable insights, predictions, and risk management suggestions. Designed to empower users with data-driven decisions, it offers a seamless experience combining technical, fundamental, and AI-driven stock evaluation tools.
         </p>
         <div class="project-tags">
           <span>React</span>
@@ -648,10 +678,11 @@
           <span>Python</span>
           <span>AI</span>
           <span>Data Analysis</span>
+          <span>Firebase</span>
         </div>
         <div class="project-links">
-          <a href="https://github.com/edward/kesefai" class="project-link"><i class="fab fa-github"></i> צפייה בקוד</a>
-          <a href="https://kesef-ai-demo.com" class="project-link"><i class="fas fa-external-link-alt"></i> הדגמה חיה</a>
+          <a href="https://github.com/edward/kesefai" class="project-link"><i class="fab fa-github"></i> View Code</a>
+          <a href="https://kesefai.net" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
         </div>
       </div>
 
@@ -666,7 +697,7 @@
         </div>
         <h4>Hit Beat</h4>
         <p class="project-desc">
-          משחק קצב VR שבו השחקנים מכה מטרה במקביל לפעימות המוזיקה. התכונות כוללות עורך רמות מותאם אישית המאפשר לשחקנים ליצור רמות משלהם או ליצור רמות אוטומטיות עם רמות קושי שונות. נבנה עם Unity ו-C#, המשחק משלב מכניקות קצב מוזיקה עם אינטראקציה פיזית ב-VR.
+          Hit Beat is a VR rhythm game where players physically hit targets synchronized with music beats. Features include a custom level editor allowing players to create their own levels or generate automatic levels with varying difficulties. Built with Unity and C#, the game combines music rhythm mechanics with physical VR interaction.
         </p>
         <div class="project-tags">
           <span>Unity</span>
@@ -674,20 +705,20 @@
           <span>3D Modeling</span>
         </div>
         <div class="project-links">
-          <a href="#" class="project-link"><i class="fab fa-github"></i> צפייה בקוד</a>
-          <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> הדגמה חיה</a>
+          <a href="#" class="project-link"><i class="fab fa-github"></i> View Code</a>
+          <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
         </div>
       </div>
     </section>
 
-    <!-- TECHNICAL SKILLS & EDUCATION -->
+    <!-- TECHNICAL SKILLS & EDUCATION SECTION -->
     <section class="section skills-education-section">
       <!-- TECHNICAL SKILLS -->
       <div class="skills-section">
-        <h2 class="section-title"><i class="fas fa-tools"></i> כישורים טכניים</h2>
+        <h2 class="section-title"><i class="fas fa-tools"></i> Technical Skills</h2>
         <div class="skills-grid">
-          <div class="skill-item">סייבר ואכיפה</div>
-          <div class="skill-item">ניהול סיכונים</div>
+          <div class="skill-item">Cybersecurity & Compliance</div>
+          <div class="skill-item">Risk Management</div>
           <div class="skill-item">Python</div>
           <div class="skill-item">React</div>
           <div class="skill-item">C#</div>
@@ -703,15 +734,15 @@
 
       <!-- EDUCATION -->
       <div class="education-section">
-        <h2 class="section-title"><i class="fas fa-graduation-cap"></i> השכלה</h2>
+        <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
         <div class="experience-card">
-          <h3>תואר ראשון במדעי המחשב</h3>
-          <p><i class="fas fa-university"></i> אוניברסיטת חיפה</p>
+          <h3>Bachelor of Science: Computer Science</h3>
+          <p><i class="fas fa-university"></i> University of Haifa</p>
           <p style="margin-top: 0.5rem;">
-            קורסים רלוונטיים: מבני נתונים, אלגוריתמים, הנדסת תוכנה, סייבר, אבטחת רשת, למידת מכונה, ניהול ציות
+            Relevant coursework: Data Structures, Algorithms, Software Engineering, Cybersecurity, Network Security, Machine Learning, Compliance Management
           </p>
           <p style="margin-top: 0.5rem;">
-            <i class="fas fa-award"></i> ציון מבחן פסיכומטרי: 709
+            <i class="fas fa-award"></i> Psychometric Test Score: 709
           </p>
         </div>
       </div>
@@ -721,7 +752,7 @@
   <!-- FOOTER -->
   <footer>
     <div class="container">
-      <p>© 2024 Edward Moiseev. כל הזכויות שמורות.</p>
+      <p>© 2024 Edward Moiseev. All rights reserved.</p>
     </div>
   </footer>
 </body>
