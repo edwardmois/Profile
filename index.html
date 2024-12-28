@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Edward Moiseev - Cybersecurity Specialist</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edward Moiseev - מומחה סייבר</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     /* --------------------------------------------------------
        RESET + BASE STYLES
@@ -17,16 +18,10 @@
     }
 
     body {
-      background: linear-gradient(135deg, #ece9e6, #ffffff);
+      background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
       color: #333;
       line-height: 1.6;
       overflow-x: hidden;
-    }
-
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
     }
 
     a {
@@ -61,8 +56,9 @@
       text-align: center;
       padding: 5rem 2rem;
       overflow: hidden;
-      clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
       transition: all 0.3s ease;
+      margin-bottom: 4rem;
     }
 
     header::before, header::after {
@@ -108,6 +104,13 @@
       0% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
       100% { transform: translateY(0); }
+    }
+
+    .header-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
     }
 
     h1 {
@@ -182,46 +185,8 @@
       position: relative;
     }
 
-    .profile-section {
-      margin-top: -3rem;
-      margin-bottom: 3rem;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(8px);
-      border-radius: 20px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-      padding: 3rem;
-      position: relative;
-      overflow: hidden;
-      animation: fadeInUp 1s ease forwards;
-      transform: translateY(30px);
-      opacity: 0;
-    }
-
-    @keyframes fadeInUp {
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-
-    .profile-section::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: conic-gradient(from 45deg, rgba(37, 99, 235, 0.1), rgba(59, 130, 246, 0.2), rgba(255,255,255,0.1));
-      animation: rotateBG 15s linear infinite;
-    }
-    .profile-section > * {
-      position: relative;
-      z-index: 2;
-    }
-
-    @keyframes rotateBG {
-      0% { transform: rotate(0); }
-      100% { transform: rotate(360deg); }
+    .section {
+      margin-bottom: 4rem;
     }
 
     .section-title {
@@ -242,16 +207,13 @@
       border-radius: 2px;
     }
 
-    .profile-section p {
-      font-size: 1.05rem;
-      line-height: 1.8;
-      color: #444;
-    }
-
     /* --------------------------------------------------------
-       PROJECTS
+       PROJECTS SECTION
     ----------------------------------------------------------- */
     .projects-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
       margin-top: 2rem;
     }
 
@@ -286,7 +248,7 @@
       justify-content: center;
       overflow: hidden;
       position: relative;
-      height: 300px;
+      height: 200px;
     }
     .project-image iframe,
     .project-image img {
@@ -351,8 +313,29 @@
     }
 
     /* --------------------------------------------------------
-       SKILLS
+       TECHNICAL SKILLS & EDUCATION SECTION
     ----------------------------------------------------------- */
+    .skills-education-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    /* TECHNICAL SKILLS */
+    .skills-section {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      animation: fadeInUp 1s ease forwards;
+      transform: translateY(30px);
+      opacity: 0;
+    }
+
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -395,9 +378,20 @@
       transform: translateY(-5px) scale(1.03);
     }
 
-    /* --------------------------------------------------------
-       EDUCATION / EXPERIENCE
-    ----------------------------------------------------------- */
+    /* EDUCATION */
+    .education-section {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      animation: fadeInUp 1s ease forwards;
+      transform: translateY(30px);
+      opacity: 0;
+    }
+
     .experience-card {
       background: #fff;
       padding: 2rem;
@@ -479,6 +473,16 @@
     }
 
     /* --------------------------------------------------------
+       ANIMATIONS
+    ----------------------------------------------------------- */
+    @keyframes fadeInUp {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    /* --------------------------------------------------------
        MEDIA QUERIES
     ----------------------------------------------------------- */
     @media (max-width: 1024px) {
@@ -501,8 +505,8 @@
       .skills-grid {
         grid-template-columns: repeat(2, 1fr);
       }
-      .profile-section {
-        margin-top: 1rem;
+      .projects-section {
+        grid-template-columns: 1fr;
       }
       header {
         clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
@@ -534,18 +538,18 @@
   <!-- HEADER -->
   <header>
     <div class="header-content">
-      <div class="container">
+      <div class="header-container">
         <h1>EDWARD MOISEEV</h1>
-        <p>Cybersecurity Specialist & Computer Science Student</p>
+        <p>מומחה סייבר וסטודנט למדעי המחשב</p>
         <div class="contact-info">
           <a href="mailto:edward.moiseev@gmail.com"><i class="fas fa-envelope"></i> edward.moiseev@gmail.com</a>
           <a href="tel:0534249063"><i class="fas fa-phone"></i> 053-424-9063</a>
-          <a href="#"><i class="fas fa-map-marker-alt"></i> Haifa, Israel</a>
+          <a href="#"><i class="fas fa-map-marker-alt"></i> חיפה, ישראל</a>
         </div>
         <div class="languages">
-          <span class="language-tag">English</span>
-          <span class="language-tag">Hebrew</span>
-          <span class="language-tag">Russian</span>
+          <span class="language-tag">אנגלית</span>
+          <span class="language-tag">עברית</span>
+          <span class="language-tag">רוסית</span>
         </div>
       </div>
     </div>
@@ -554,16 +558,16 @@
   <!-- MAIN -->
   <main class="container">
     <!-- PROFILE SECTION -->
-    <section class="profile-section">
-      <h2 class="section-title"><i class="fas fa-user"></i> Profile</h2>
+    <section class="section profile-section">
+      <h2 class="section-title"><i class="fas fa-user"></i> פרופיל</h2>
       <p>
-        I'm a motivated Computer Science student with a solid foundation in machine learning, artificial intelligence, data science, and cybersecurity risk management. I've gained practical experience with Python programming and am familiar with contemporary machine learning frameworks. Currently, I'm diving into real-world AI applications, such as developing an AI-driven financial analysis tool. I'm excited to apply my skills in machine learning, data analysis, and software development to contribute to impactful projects.
+        אני סטודנט למדעי המחשב עם בסיס מוצק בלמידת מכונה, בינה מלאכותית, מדעי הנתונים וניהול סיכוני סייבר. רכשתי ניסיון מעשי בתכנות בפייתון ומכיר עם מסגרות למידת מכונה עכשוויות. כרגע אני עובד על יישומים אמיתיים של AI, כמו פיתוח כלי ניתוח פיננסי מונחה AI. אני נרגש ליישם את כישוריי בלמידת מכונה, ניתוח נתונים ופיתוח תוכנה כדי לתרום לפרויקטים משמעותיים.
       </p>
     </section>
 
     <!-- PROJECTS SECTION -->
-    <section class="profile-section projects-section">
-      <h2 class="section-title"><i class="fas fa-code-branch"></i> Projects</h2>
+    <section class="section projects-section">
+      <h2 class="section-title"><i class="fas fa-code-branch"></i> פרויקטים</h2>
 
       <!-- Project 1: KESEF AI -->
       <div class="project-card">
@@ -576,7 +580,7 @@
         </div>
         <h4>KESEF AI</h4>
         <p class="project-desc">
-          KESEF AI is an advanced platform for analyzing stocks using interactive charts, technical indicators (e.g., RSI, moving averages), and comprehensive financial data like market cap, P/E ratio, and revenue. The page integrates AI-powered analysis to provide actionable insights, predictions, and risk management suggestions. Designed to empower users with data-driven decisions, it offers a seamless experience combining technical, fundamental, and AI-driven stock evaluation tools.
+          KESEF AI היא פלטפורמה מתקדמת לניתוח מניות באמצעות גרפים אינטראקטיביים, אינדיקטורים טכניים (כמו RSI, ממוצעים נעים) ונתונים פיננסיים מקיפים כמו שווי שוק, יחס P/E והכנסות. העמוד משלבת ניתוח מונחה AI לספק תובנות מעשיות, תחזיות והצעות לניהול סיכונים. מעוצב כדי להעצים משתמשים בהחלטות מונחות נתונים, הוא מציע חווייה חלקה המשלבת כלים להערכה טכנית, יסודית ומונחית AI של מניות.
         </p>
         <div class="project-tags">
           <span>React</span>
@@ -586,8 +590,8 @@
           <span>Data Analysis</span>
         </div>
         <div class="project-links">
-          <a href="https://github.com/edward/kesefai" class="project-link"><i class="fab fa-github"></i> View Code</a>
-          <a href="https://kesef-ai-demo.com" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+          <a href="https://github.com/edward/kesefai" class="project-link"><i class="fab fa-github"></i> צפייה בקוד</a>
+          <a href="https://kesef-ai-demo.com" class="project-link"><i class="fas fa-external-link-alt"></i> הדגמה חיה</a>
         </div>
       </div>
 
@@ -602,7 +606,7 @@
         </div>
         <h4>Hit Beat</h4>
         <p class="project-desc">
-          A VR rhythm game where players physically hit targets synchronized with music beats. Features include a custom level editor allowing players to create their own levels or generate automatic levels with varying difficulties. Built with Unity and C#, the game combines music rhythm mechanics with physical VR interaction.
+          משחק קצב VR שבו השחקנים מכה מטרה במקביל לפעימות המוזיקה. התכונות כוללות עורך רמות מותאם אישית המאפשר לשחקנים ליצור רמות משלהם או ליצור רמות אוטומטיות עם רמות קושי שונות. נבנה עם Unity ו-C#, המשחק משלב מכניקות קצב מוזיקה עם אינטראקציה פיזית ב-VR.
         </p>
         <div class="project-tags">
           <span>Unity</span>
@@ -610,43 +614,46 @@
           <span>3D Modeling</span>
         </div>
         <div class="project-links">
-          <a href="#" class="project-link"><i class="fab fa-github"></i> View Code</a>
-          <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+          <a href="#" class="project-link"><i class="fab fa-github"></i> צפייה בקוד</a>
+          <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> הדגמה חיה</a>
         </div>
       </div>
     </section>
 
-    <!-- TECH SKILLS SECTION -->
-    <section class="profile-section">
-      <h2 class="section-title"><i class="fas fa-tools"></i> Technical Skills</h2>
-      <div class="skills-grid">
-        <div class="skill-item">Cybersecurity & Compliance</div>
-        <div class="skill-item">Risk Management</div>
-        <div class="skill-item">Python</div>
-        <div class="skill-item">React</div>
-        <div class="skill-item">C#</div>
-        <div class="skill-item">SQL</div>
-        <div class="skill-item">Wireshark</div>
-        <div class="skill-item">GitHub</div>
-        <div class="skill-item">Firebase</div>
-        <div class="skill-item">Flask</div>
-        <div class="skill-item">Machine Learning</div>
-        <div class="skill-item">Unity</div>
+    <!-- TECHNICAL SKILLS & EDUCATION -->
+    <section class="section skills-education-section">
+      <!-- TECHNICAL SKILLS -->
+      <div class="skills-section">
+        <h2 class="section-title"><i class="fas fa-tools"></i> כישורים טכניים</h2>
+        <div class="skills-grid">
+          <div class="skill-item">סייבר ואכיפה</div>
+          <div class="skill-item">ניהול סיכונים</div>
+          <div class="skill-item">Python</div>
+          <div class="skill-item">React</div>
+          <div class="skill-item">C#</div>
+          <div class="skill-item">SQL</div>
+          <div class="skill-item">Wireshark</div>
+          <div class="skill-item">GitHub</div>
+          <div class="skill-item">Firebase</div>
+          <div class="skill-item">Flask</div>
+          <div class="skill-item">Machine Learning</div>
+          <div class="skill-item">Unity</div>
+        </div>
       </div>
-    </section>
 
-    <!-- EDUCATION SECTION -->
-    <section class="profile-section">
-      <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
-      <div class="experience-card">
-        <h3>Bachelor of Science: Computer Science</h3>
-        <p><i class="fas fa-university"></i> University Of Haifa</p>
-        <p style="margin-top: 0.5rem;">
-          Relevant coursework: Data Structures, Algorithms, Software Engineering, Cybersecurity, Network Security, Machine Learning, Compliance Management
-        </p>
-        <p style="margin-top: 0.5rem;">
-          <i class="fas fa-award"></i> Psychometric Test Score: 709
-        </p>
+      <!-- EDUCATION -->
+      <div class="education-section">
+        <h2 class="section-title"><i class="fas fa-graduation-cap"></i> השכלה</h2>
+        <div class="experience-card">
+          <h3>תואר ראשון במדעי המחשב</h3>
+          <p><i class="fas fa-university"></i> אוניברסיטת חיפה</p>
+          <p style="margin-top: 0.5rem;">
+            קורסים רלוונטיים: מבני נתונים, אלגוריתמים, הנדסת תוכנה, סייבר, אבטחת רשת, למידת מכונה, ניהול ציות
+          </p>
+          <p style="margin-top: 0.5rem;">
+            <i class="fas fa-award"></i> ציון מבחן פסיכומטרי: 709
+          </p>
+        </div>
       </div>
     </section>
   </main>
@@ -654,7 +661,7 @@
   <!-- FOOTER -->
   <footer>
     <div class="container">
-      <p>© 2024 Edward Moiseev. All rights reserved.</p>
+      <p>© 2024 Edward Moiseev. כל הזכויות שמורות.</p>
     </div>
   </footer>
 </body>
