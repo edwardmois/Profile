@@ -2,7 +2,7 @@
 <html lang="he">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Edward Moiseev - מומחה סייבר</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -208,6 +208,59 @@
     }
 
     /* --------------------------------------------------------
+       PROFILE AND SIDE BOX
+    ----------------------------------------------------------- */
+    .profile-and-side {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+      margin-bottom: 4rem;
+      flex-wrap: wrap;
+    }
+
+    .profile-section {
+      flex: 2;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      animation: fadeInUp 1s ease forwards;
+      transform: translateY(30px);
+      opacity: 0;
+    }
+
+    .side-box {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      animation: fadeInUp 1s ease forwards;
+      transform: translateY(30px);
+      opacity: 0;
+      height: fit-content;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .profile-section > *,
+    .side-box > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* --------------------------------------------------------
        PROJECTS SECTION
     ----------------------------------------------------------- */
     .projects-section {
@@ -248,7 +301,7 @@
       justify-content: center;
       overflow: hidden;
       position: relative;
-      height: 200px;
+      height: 250px;
     }
     .project-image iframe,
     .project-image img {
@@ -495,15 +548,11 @@
     }
 
     @media (max-width: 768px) {
-      h1 {
-        font-size: 2.5rem;
-      }
-      .contact-info {
+      .profile-and-side {
         flex-direction: column;
-        align-items: stretch;
       }
-      .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
+      .skills-education-section {
+        grid-template-columns: 1fr;
       }
       .projects-section {
         grid-template-columns: 1fr;
@@ -557,12 +606,23 @@
 
   <!-- MAIN -->
   <main class="container">
-    <!-- PROFILE SECTION -->
-    <section class="section profile-section">
-      <h2 class="section-title"><i class="fas fa-user"></i> פרופיל</h2>
-      <p>
-        אני סטודנט למדעי המחשב עם בסיס מוצק בלמידת מכונה, בינה מלאכותית, מדעי הנתונים וניהול סיכוני סייבר. רכשתי ניסיון מעשי בתכנות בפייתון ומכיר עם מסגרות למידת מכונה עכשוויות. כרגע אני עובד על יישומים אמיתיים של AI, כמו פיתוח כלי ניתוח פיננסי מונחה AI. אני נרגש ליישם את כישוריי בלמידת מכונה, ניתוח נתונים ופיתוח תוכנה כדי לתרום לפרויקטים משמעותיים.
-      </p>
+    <!-- PROFILE AND SIDE BOX -->
+    <section class="section profile-and-side">
+      <!-- PROFILE SECTION -->
+      <div class="profile-section">
+        <h2 class="section-title"><i class="fas fa-user"></i> פרופיל</h2>
+        <p>
+          אני סטודנט למדעי המחשב עם בסיס מוצק בלמידת מכונה, בינה מלאכותית, מדעי הנתונים וניהול סיכוני סייבר. רכשתי ניסיון מעשי בתכנות בפייתון ומכיר עם מסגרות למידת מכונה עכשוויות. כרגע אני עובד על יישומים אמיתיים של AI, כמו פיתוח כלי ניתוח פיננסי מונחה AI. אני נרגש ליישם את כישוריי בלמידת מכונה, ניתוח נתונים ופיתוח תוכנה כדי לתרום לפרויקטים משמעותיים.
+        </p>
+      </div>
+
+      <!-- SIDE BOX (למשל תמונה או קישורים נוספים) -->
+      <div class="side-box">
+        <h2 class="section-title"><i class="fas fa-info-circle"></i> מידע נוסף</h2>
+        <p>
+          ניתן להוסיף כאן מידע נוסף, תמונה מקצועית, קישורים חברתיים או כל תוכן נוסף שתרצה להציג לצד הפרופיל.
+        </p>
+      </div>
     </section>
 
     <!-- PROJECTS SECTION -->
