@@ -112,6 +112,21 @@
     .proj-dots button.active {background:var(--accent);border-color:var(--accent-glow);box-shadow:0 0 0 4px rgba(59,130,246,.25);}    
     .proj-progress-bar {background:linear-gradient(90deg,#2563eb,#4f46e5,#9333ea);}    
 
+    /* Gallery structural fixes to prevent overlap */
+    .project-gallery {position:relative;overflow:hidden;}
+    .project-gallery .slides {position:relative;height:100%;width:100%;}
+    .project-gallery .slide {position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity .6s ease;}
+    .project-gallery .slide.active {opacity:1;}
+    .project-gallery .slide img {width:100%;height:100%;object-fit:cover;display:block;}
+    .proj-nav-btn {position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;display:flex;align-items:center;justify-content:center;color:#fff;border-radius:50%;cursor:pointer;z-index:5;}
+    .proj-nav-btn.prev {left:12px;}
+    .proj-nav-btn.next {right:12px;}
+    .proj-dots {position:absolute;left:50%;bottom:12px;transform:translateX(-50%);display:flex;gap:8px;z-index:6;}
+    .proj-dots button {width:10px;height:10px;border-radius:50%;border:1px solid #fff;cursor:pointer;}
+    .proj-progress-bar {position:absolute;left:0;bottom:0;height:3px;width:0;z-index:6;}
+    /* Ensure text layers above gallery */
+    .project-card h4, .project-desc, .feature-title, .feature-list, .project-metrics, .project-tags, .project-links {position:relative;z-index:2;}
+
     /* ======================= RESUME SECTION ======================= */
     .resume-section {background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius);padding:3rem 3.2rem;margin-bottom:4rem;position:relative;overflow:hidden;box-shadow:var(--shadow-lg);}    
     .resume-section:before {content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(circle at 72% 18%,rgba(59,130,246,.18),transparent 60%),radial-gradient(circle at 8% 88%,rgba(99,102,241,.18),transparent 60%);opacity:.55;mix-blend-mode:plus-lighter;pointer-events:none;}
@@ -201,7 +216,7 @@
 
       <!-- Project 1: KESEF AI -->
       <div class="project-card animate-on-scroll">
-        <div class="project-gallery" data-gallery="kesefai" data-autoplay="5500">
+        <div class="project-gallery" data-gallery="kesefai" data-autoplay="4500">
           <div class="slides">
             <div class="slide active"><img src="assets/img/kesefai.png" alt="KesefAI main dashboard"></div>
             <div class="slide"><img src="assets/img/kesefai-2.png" alt="KesefAI AI analysis module"></div>
@@ -234,7 +249,7 @@
 
       <!-- Project 2: ResumEd (Condensed) -->
       <div class="project-card animate-on-scroll">
-        <div class="project-gallery" data-gallery="resumed" data-autoplay="6000">
+        <div class="project-gallery" data-gallery="resumed" data-autoplay="4500">
           <div class="slides">
             <div class="slide active"><img src="assets/img/resumed.png" alt="ResumEd studio home"></div>
             <div class="slide"><img src="assets/img/resumed-2.png" alt="ResumEd image generation settings"></div>
@@ -267,7 +282,7 @@
           <iframe src="https://www.youtube.com/embed/2z5uD4jv92k" title="Hit Beat Gameplay" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%;height:100%;border:0;"></iframe>
         </div>
         <h4>Hit Beat (VR Rhythm Game)</h4>
-        <p class="project-desc">Immersive VR rhythm experience featuring physical strike mechanics synced to music, custom level editor & procedural difficulty generation. Built in Unity (C#) with extensible architecture for future multiplayer & community modding.</p>
+        <p class="project-desc">VR rhythm game featuring physical strike mechanics synced to music, custom level editor & difficulty generation. Built in Unity (C#).</p>
         <div class="project-tags stagger"><span>Unity</span><span>C#</span><span>VR</span><span>Game Design</span></div>
       </div>
     </section>
