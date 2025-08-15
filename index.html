@@ -90,7 +90,7 @@
     .proj-dots button {width:10px;height:10px;border-radius:50%;border:1px solid #fff;cursor:pointer;}
     .proj-progress-bar {position:absolute;left:0;bottom:0;height:3px;width:0;z-index:6;}
     /* Ensure text layers above gallery */
-    .project-card h4, .project-desc, .feature-title, .feature-list, .project-metrics, .project-tags, .project-links {position:relative;z-index:2;}
+    .project-card h4, .project-desc, .feature-title, .feature-list, .project-metrics, .project-tags, .project-links {position:static;z-index:auto;}
 
     /* ======================= RESUME SECTION ======================= */
     .resume-section {background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius);padding:3rem 3.2rem;margin-bottom:4rem;position:relative;overflow:hidden;box-shadow:var(--shadow-lg);}    
@@ -132,6 +132,38 @@
     /* Increased spacing between project cards */
     .project-card + .project-card {margin-top:4.5rem;}
     @media (max-width:640px){.project-card + .project-card {margin-top:3rem;}}
+    /* FIX: restore slider styling & prevent text overlay on gallery */
+    .project-gallery {position:relative;}
+    .project-gallery .slides {position:relative;width:100%;height:100%;}
+    .project-gallery .slide {position:absolute;inset:0;opacity:0;transition:opacity .65s ease;}
+    .project-gallery .slide.active {opacity:1;}
+    /* Dots & progress visuals */
+    .proj-dots button {background:rgba(255,255,255,.25);border:0;transition:.3s;}
+    .proj-dots button.active {background:#fff;transform:scale(1.45);}
+    .proj-progress-bar {background:linear-gradient(90deg,var(--accent),#9333ea);}
+
+    /* ===== Clean gallery full image (centered, no crop) + tidy text block spacing ===== */
+    .project-gallery {display:flex;align-items:center;justify-content:center;}
+    .project-gallery .slide {display:flex;align-items:center;justify-content:center;}
+    .project-gallery .slide img {width:auto;max-width:100%;height:auto;max-height:100%;object-fit:contain;margin:auto;padding:10px;}
+    /* Uniform horizontal padding for textual parts */
+    .project-card h4,
+    .project-card .project-desc,
+    .project-card .project-metrics,
+    .project-card .feature-title,
+    .project-card .feature-list,
+    .project-card .project-tags,
+    .project-card .project-links {padding:0 1.8rem;}
+    .project-card h4 {margin:1.4rem 0 .6rem;font-size:1.15rem;}
+    .project-card .project-desc {margin:0 0 1.1rem;}
+    .project-card .project-metrics {display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 1rem;}
+    .project-card .metric-chip {background:var(--bg-alt);border:1px solid var(--border);padding:.45rem .7rem;border-radius:40px;font-size:.63rem;letter-spacing:.5px;color:var(--text-dim);}    
+    .feature-title {margin:.4rem 0 .4rem;font-size:.7rem;letter-spacing:1.4px;text-transform:uppercase;color:var(--accent);font-weight:600;}
+    .feature-list {list-style:none;display:grid;gap:.45rem;margin:0 0 1rem;font-size:.75rem;color:var(--text-dim);}
+    .feature-list li {line-height:1.4;}
+    .project-tags {display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 1.1rem;font-size:.65rem;}
+    .project-tags span {background:var(--bg-alt);border:1px solid var(--border);padding:.4rem .65rem;border-radius:40px;color:var(--text-dim);} 
+    .project-links {margin:0 0 1.6rem;}
   </style>
 </head>
 <body>
