@@ -78,8 +78,11 @@
     .project-card:before {content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(140deg,rgba(255,255,255,.12),transparent 55%);opacity:0;transition:var(--trans);pointer-events:none;}
     .project-card:hover {transform:translateY(-8px);border-color:var(--accent);}
     .project-card:hover:before {opacity:.4;}
-    .project-gallery {height:340px;border:0;border-bottom:1px solid var(--border);background:#0c1524;}
-    @media (max-width:520px){.project-gallery{height:240px}}
+    .project-gallery {height:420px;border:0;border-bottom:1px solid var(--border);background:#0c1524;}
+    @media (max-width:820px){.project-gallery{height:380px}}
+    @media (max-width:520px){.project-gallery{height:300px}}
+    /* Show full image without cropping */
+    .project-gallery .slide img {width:100%;height:100%;object-fit:contain;object-position:center;background:#0c1524;padding:6px;}
     .project-card h4 {font-size:1.4rem;padding:1.3rem 1.6rem 0;margin:0;color:#fff;letter-spacing:.3px;}
     .project-card h4 .badge-inline {margin-left:.6rem;background:linear-gradient(92deg,#2563eb,#4f46e5);padding:.35rem .6rem;font-size:.55rem;letter-spacing:1px;border-radius:6px;vertical-align:middle;}
     .project-desc {padding:1rem 1.6rem 1.2rem;font-size:.9rem;color:var(--text-dim);}
