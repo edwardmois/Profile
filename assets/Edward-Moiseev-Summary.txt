@@ -1,0 +1,23 @@
+Edward Moiseev – Professional Summary
+
+AI & Data Product Builder with a B.Sc. in Computer Science (2025) and starting an M.Sc. in Financial Mathematics (FinTech). Delivered two production platforms:
+- KesefAI: Hebrew real‑time stock intelligence (market data + indicators + AI strategic brief + education hub) with 70+ users and credit-based insights.
+- ResumEd AI Studio: Multi‑modal creative tool for generating & refining images and short motion clips from text or images.
+
+Core Strengths
+- Practical AI integration (strategic summarization, media generation)
+- Data orchestration & clean backend logic (Python, React, Firebase)
+- Product execution: feature scoping, iteration from user signals & analytics
+- Secure payment & usage gating patterns
+
+Technical Snapshot
+Python • C++ • React • Flask • Firebase • AI / Prompt Engineering • Data Analytics • PyTorch • Product Metrics • System Design
+
+Former Experience
+Risk Management & Compliance – CYBER IEC (2023–2024). Drafted policies & performed OT risk assessments.
+
+Volunteering
+LATET (2020–2025) – Led logistics for aid packages; supervised 120+ volunteers monthly.
+
+Contact
+Email: edward.moiseev@gmail.com | LinkedIn: linkedin.com/in/edward-moiseev | Phone: +972-53-424-9063
