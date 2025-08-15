@@ -179,6 +179,50 @@
       transform: scale(1.05);
     }
 
+    /* Download CV Button */
+    .download-cv-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      margin-top: 1.2rem;
+      background: #fff;
+      color: #1e40af;
+      font-weight: 600;
+      padding: .8rem 1.25rem;
+      border-radius: 14px;
+      font-size: .9rem;
+      box-shadow: 0 6px 18px -6px rgba(59,130,246,.35);
+      position: relative;
+      overflow: hidden;
+      transition: .35s;
+    }
+    .download-cv-btn:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg,#3b82f6,#6366f1,#3b82f6);
+      opacity: 0;
+      transition: .4s;
+    }
+    .download-cv-btn span {
+      position: relative;
+      z-index: 2;
+    }
+    .download-cv-btn i {
+      position: relative;
+      z-index: 2;
+    }
+    .download-cv-btn:hover {
+      color: #fff;
+      transform: translateY(-4px);
+    }
+    .download-cv-btn:hover:before {
+      opacity: 1;
+    }
+    .download-cv-btn:active {
+      transform: translateY(-1px) scale(.97);
+    }
+
     /* --------------------------------------------------------
        MAIN CONTENT
     ----------------------------------------------------------- */
@@ -567,6 +611,28 @@
       }
     }
 
+    /* Scroll / Stagger Animations */
+    .animate-on-scroll {opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s cubic-bezier(.16,.8,.24,1);}
+    .animate-on-scroll.in-view {opacity:1;transform:translateY(0);}    
+    .stagger > * {opacity:0;transform:translateY(20px);}    
+    .stagger.in-view > * {animation:staggerFade .75s forwards;}
+    .stagger.in-view > *:nth-child(1){animation-delay:.05s}
+    .stagger.in-view > *:nth-child(2){animation-delay:.15s}
+    .stagger.in-view > *:nth-child(3){animation-delay:.25s}
+    .stagger.in-view > *:nth-child(4){animation-delay:.35s}
+    .stagger.in-view > *:nth-child(5){animation-delay:.45s}
+    .stagger.in-view > *:nth-child(6){animation-delay:.55s}
+    @keyframes staggerFade {to{opacity:1;transform:translateY(0)}}
+    /* Feature list bullets subtle slide */
+    .feature-list li {animation:featureItem .6s ease forwards;opacity:0;transform:translateX(-8px);}    
+    .feature-list.in-view li {opacity:1;transform:none;} /* fallback if JS disabled */
+    @keyframes featureItem {to{opacity:1;transform:translateX(0)}}
+    .feature-list li:nth-child(1){animation-delay:.05s}
+    .feature-list li:nth-child(2){animation-delay:.15s}
+    .feature-list li:nth-child(3){animation-delay:.25s}
+    .feature-list li:nth-child(4){animation-delay:.35s}
+    .feature-list li:nth-child(5){animation-delay:.45s}
+    .feature-list li:nth-child(6){animation-delay:.55s}
     /* --------------------------------------------------------
        MEDIA QUERIES
     ----------------------------------------------------------- */
@@ -621,6 +687,56 @@
       }
     }
 
+    /* Added styles for new profile/resume + feature lists */
+    .mini-bio {
+      background: rgba(255,255,255,0.18);
+      padding: 1.2rem 1.4rem;
+      border-radius: 18px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 6px 20px -5px rgba(0,0,0,0.25);
+      line-height: 1.4;
+      margin-top: 1.2rem;
+      font-size: .95rem;
+    }
+    .mini-bio strong { color:#fff; }
+    .project-card .feature-title {font-weight:600;color:#1e3a8a;margin:0 0 .4rem;font-size:1rem;}
+    .feature-list {list-style:none;margin:0 0 1rem;padding:0;}
+    .feature-list li {position:relative;padding-left:1.1rem;margin:.35rem 0;font-size:.9rem;color:#444;}
+    .feature-list li:before {content:'✔';position:absolute;left:0;top:0;color:#2563eb;font-weight:600;font-size:.85rem;}
+    .project-metrics {display:flex;flex-wrap:wrap;gap:.6rem;margin: .6rem 0 1rem;}
+    .metric-chip {background:#f1f5f9;border:1px solid #e2e8f0;padding:.4rem .7rem;font-size:.7rem;letter-spacing:.5px;border-radius:30px;color:#0f4c81;font-weight:600;}
+    .resume-section {background:rgba(255,255,255,0.95);border-radius:20px;box-shadow:0 10px 25px rgba(0,0,0,0.08);padding:2.2rem;margin-bottom:3rem;position:relative;overflow:hidden;}
+    .resume-grid {display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+    .resume-block h3 {font-size:1.3rem;margin-bottom:.9rem;color:#1e40af;display:flex;align-items:center;gap:.55rem;}
+    .resume-block ul {list-style:none;padding:0;margin:0;}
+    .resume-block ul li {padding-left:1.05rem;margin:.55rem 0;font-size:.88rem;color:#555;}
+    .resume-block ul li:before {content:'›';position:absolute;left:0;color:#2563eb;font-weight:700;}
+    .tag-cloud {display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem;}
+    .tag-cloud span {background:#e0f2fe;color:#0369a1;padding:.45rem .75rem;font-size:.7rem;border-radius:25px;font-weight:600;}
+    .vol-card {background:#fff;padding:1.1rem 1.2rem;border:1px solid #e5e7eb;border-radius:14px;position:relative;overflow:hidden;transition:.3s;}
+    .vol-card:hover {border-color:#2563eb;box-shadow:0 6px 16px rgba(37,99,235,.18);}
+    .resume-section h2.section-title {margin-top:0;}
+    .project-hero-img {object-fit:cover;width:100%;height:100%;transition:transform .4s ease;}
+    .project-card:hover .project-hero-img {transform:scale(1.06);}  
+    .badge-inline {background:#2563eb;color:#fff;padding:.25rem .55rem;font-size:.65rem;border-radius:6px;margin-left:.45rem;letter-spacing:.5px;}
+    @media (max-width:720px){.resume-grid{grid-template-columns:1fr;} .mini-bio{font-size:.9rem;}}
+
+    /* Project Gallery Slider */
+    .project-gallery {position:relative;height:300px;background:#0f172a;border-bottom:1px solid #1e293b;overflow:hidden;}
+    .project-gallery .slides {position:relative;width:100%;height:100%;}
+    .project-gallery .slide {position:absolute;inset:0;opacity:0;transform:scale(1.04) translateY(8px);transition:opacity 1s ease,transform 1.2s cubic-bezier(.16,.8,.24,1);display:flex;align-items:center;justify-content:center;}
+    .project-gallery .slide.active {opacity:1;transform:scale(1) translateY(0);z-index:2;}
+    .project-gallery img {width:100%;height:100%;object-fit:cover;filter:brightness(.92) saturate(1.05);}
+    .proj-nav-btn {position:absolute;top:50%;transform:translateY(-50%);background:rgba(15,23,42,.55);border:none;color:#fff;width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;cursor:pointer;backdrop-filter:blur(6px);transition:background .3s, transform .3s;z-index:10;}
+    .proj-nav-btn:hover {background:rgba(59,130,246,.85);transform:translateY(-50%) scale(1.07);} 
+    .proj-nav-btn:active {transform:translateY(-50%) scale(.93);} 
+    .proj-nav-btn.prev {left:12px;} .proj-nav-btn.next {right:12px;}
+    .proj-dots {position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:.5rem;z-index:12;}
+    .proj-dots button {width:11px;height:11px;border-radius:50%;border:2px solid rgba(255,255,255,.55);background:rgba(255,255,255,.15);cursor:pointer;transition:all .35s ease;backdrop-filter:blur(4px);}
+    .proj-dots button.active {background:#3b82f6;border-color:#fff;box-shadow:0 0 0 4px rgba(59,130,246,.25);} 
+    .proj-progress-bar {position:absolute;bottom:0;left:0;height:3px;background:linear-gradient(90deg,#3b82f6,#6366f1);width:0;transition:width linear;} 
+    .project-gallery:hover .proj-progress-bar {opacity:.4;} 
+    @media (max-width:480px){.project-gallery{height:200px}}
   </style>
 </head>
 <body>
@@ -645,63 +761,192 @@
 
       <!-- Header Right: Profile Section -->
       <div class="header-right">
-
+        <div class="mini-bio">
+          <strong>Cybersecurity & FinTech Focus.</strong><br>
+          B.Sc. Computer Science (Haifa) & M.Sc. Financial Mathematics (Bar Ilan). Hands‑on building AI driven finance & media platforms (full stack React + Flask + Firebase + GenAI). Passion for secure, data‑driven product delivery & measurable growth.
+        </div>
+        <!-- Download CV Button -->
+        <a class="download-cv-btn" href="Edward%20Moiseev%20A+.pdf" download title="Download CV PDF"><i class="fas fa-download"></i><span>Download CV</span></a>
+      </div>
     </div>
   </header>
 
   <!-- MAIN -->
   <main class="container">
     <!-- PROJECTS SECTION -->
-    <section class="section projects-section">
+    <section class="section projects-section animate-on-scroll" id="projects">
       <h2 class="section-title"><i class="fas fa-code-branch"></i> Projects</h2>
 
-      <!-- Project 1: KESEF AI -->
-      <div class="project-card">
-        <div class="project-image">
-          <iframe 
-            src="https://www.youtube.com/embed/jVagbEu5Neg" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
+      <!-- Project 1: KESEF AI (Image instead of video) -->
+      <div class="project-card animate-on-scroll">
+        <div class="project-gallery" data-gallery="kesefai" data-autoplay="5500">
+          <div class="slides">
+            <div class="slide active"><img src="assets/img/kesefai.png" alt="KesefAI main dashboard"></div>
+            <div class="slide"><img src="assets/img/kesefai-2.png" alt="KesefAI AI analysis module"></div>
+            <div class="slide"><img src="assets/img/kesefai-3.png" alt="KesefAI credits & payment screen"></div>
+          </div>
+          <button class="proj-nav-btn prev" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+          <button class="proj-nav-btn next" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
+          <div class="proj-dots" aria-label="Slide indicators"></div>
+          <div class="proj-progress-bar"></div>
         </div>
-        <h4>KESEF AI</h4>
+        <h4>KESEF AI <span class="badge-inline">Production Ready</span></h4>
         <p class="project-desc">
-          KESEF AI is an advanced platform for analyzing stocks using interactive charts, technical indicators (e.g., RSI, moving averages), and comprehensive financial data like market cap, P/E ratio, and revenue. The page integrates AI-powered analysis to provide actionable insights, predictions, and risk management suggestions. Designed to empower users with data-driven decisions, it offers a seamless experience combining technical, fundamental, and AI-driven stock evaluation tools.
+          End‑to‑end Hebrew stock intelligence platform unifying real‑time market data, technical & fundamental layers, options chain, news + sentiment in a single actionable screen. An AI layer (Gemini 2.5 Pro) returns strategic summary, price levels, catalysts & risk factors in seconds. A 33‑chapter investing course drives organic acquisition (SEO) & trust, while a transparent credit model monetizes AI insights.
         </p>
-        <div class="project-tags">
-          <span>React</span>
-          <span>Flask</span>
-          <span>Python</span>
-          <span>AI</span>
-          <span>Data Analysis</span>
+        <div class="project-metrics">
+          <div class="metric-chip">60+ Users</div>
+          <div class="metric-chip">AI Credit Model</div>
+          <div class="metric-chip">Realtime Data</div>
+          <div class="metric-chip">Conversion Optimized</div>
+          <div class="metric-chip">Deep Analytics</div>
+          <div class="metric-chip">PWA Ready</div>
+        </div>
+        <div class="project-desc" style="padding-top:0;">
+          <div class="feature-title">Product Core</div>
+          <ul class="feature-list">
+            <li>Unified Stock Agent: Indicators (MACD, RSI, Bollinger, Fibonacci), rich fundamentals, analysts, options Greeks, news feed.</li>
+            <li>AI JSON responses cached (Firestore) to accelerate repeat queries & reduce cost.</li>
+            <li>Credit economy (1 credit / AI analysis) with PayPal Capture + onboarding free credits.</li>
+            <li>Growth telemetry: funnel, scroll depth, credit usage, API/payment failures → iteration loop.</li>
+            <li>SEO & Performance: Lazy loading, Service Worker cache, structured data (JSON‑LD).</li>
+          </ul>
+          <div class="feature-title">Stack</div>
+          <ul class="feature-list">
+            <li>Frontend: React + Vite, Firebase Auth/Firestore, PayPal SDK.</li>
+            <li>Backend: Flask, yfinance / yahooquery, ta, Gemini 2.5 Pro, Firestore cache.</li>
+            <li>Analytics & Consent: GA4 opt‑in gating + cookie banner persistence.</li>
+          </ul>
+          <div class="feature-title">Business Value</div>
+          <ul class="feature-list">
+            <li>Production grade codebase with monetization, attribution & measurement baked in.</li>
+            <li>Extension surface: alerts, premium subscription tier, backtesting lite, automation.</li>
+          </ul>
+        </div>
+        <div class="project-tags stagger">
+          <span>React</span><span>Flask</span><span>AI</span><span>Finance</span><span>Firebase</span><span>PayPal</span>
         </div>
         <div class="project-links">
-          <a href="https://kesefai.net" class="project-link"><i class="fas fa-external-link-alt"></i> Website</a>
+          <a href="https://kesefai.net" class="project-link" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Website</a>
         </div>
       </div>
 
-      <!-- Project 2: Hit Beat -->
-      <div class="project-card">
+      <!-- Project 2: ResumEd (Image) -->
+      <div class="project-card animate-on-scroll">
+        <div class="project-gallery" data-gallery="resumed" data-autoplay="6000">
+          <div class="slides">
+            <div class="slide active"><img src="assets/img/resumed.png" alt="ResumEd studio home"></div>
+            <div class="slide"><img src="assets/img/resumed-2.png" alt="ResumEd image generation settings"></div>
+            <div class="slide"><img src="assets/img/resumed-3.png" alt="ResumEd video creation flow"></div>
+          </div>
+          <button class="proj-nav-btn prev" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+          <button class="proj-nav-btn next" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
+          <div class="proj-dots" aria-label="Slide indicators"></div>
+          <div class="proj-progress-bar"></div>
+        </div>
+        <h4>ResumEd AI Studio <span class="badge-inline">Multi‑Modal</span></h4>
+        <p class="project-desc">
+          AI media generation & editing studio (image + video) with a production credit economy. Integrates Replicate models for text→image, guided image editing & text/image→video. Secure server‑side credit deduction, PayPal billing, Firebase Storage asset vault & dynamic profile gallery with filters. Conversion‑oriented homepage (Framer Motion + structured SEO metadata).
+        </p>
+        <div class="project-metrics">
+          <div class="metric-chip">Text→Image</div>
+          <div class="metric-chip">Image Editing</div>
+          <div class="metric-chip">Video Gen</div>
+          <div class="metric-chip">Credit Engine</div>
+          <div class="metric-chip">Secure Downloads</div>
+          <div class="metric-chip">PayPal Server</div>
+        </div>
+        <div class="project-desc" style="padding-top:0;">
+          <div class="feature-title">Features</div>
+          <ul class="feature-list">
+            <li>Prompt → media with ratio, quality, duration, FPS & effect control (effects library).</li>
+            <li>Controlled safety tuning & retry logic for model outputs.</li>
+            <li>Transactional server credit deduction (fail‑safe 402 handling & modal upsell).</li>
+            <li>Profile gallery: secure BE‑validated download of owned assets.</li>
+            <li>Billing extensibility: PayPal live + pre‑wired Stripe endpoints.</li>
+          </ul>
+            <div class="feature-title">Stack</div>
+          <ul class="feature-list">
+            <li>Frontend: React Router, Tailwind + custom CSS, Framer Motion, Firebase Web SDK.</li>
+            <li>Backend: Flask, Firebase Admin, Replicate API, PayPal REST SDK.</li>
+          </ul>
+          <div class="feature-title">Future Leverage</div>
+          <ul class="feature-list">
+            <li>Subscription / premium tiers & usage caps.</li>
+            <li>Built‑in KPI stats endpoint (/api/stats) for product decisions.</li>
+          </ul>
+        </div>
+        <div class="project-tags stagger">
+          <span>React</span><span>Flask</span><span>Replicate</span><span>Firebase</span><span>PayPal</span><span>Video</span>
+        </div>
+        <div class="project-links">
+          <a href="https://resumed.co.il" class="project-link" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Website</a>
+        </div>
+      </div>
+
+      <!-- Project 3: Hit Beat (Keep video) -->
+      <div class="project-card animate-on-scroll">
         <div class="project-image">
           <iframe
             src="https://www.youtube.com/embed/2z5uD4jv92k"
+            title="Hit Beat Gameplay"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
+            allowfullscreen></iframe>
         </div>
-        <h4>Hit Beat</h4>
+        <h4>Hit Beat (VR Rhythm Game)</h4>
         <p class="project-desc">
-          Hit Beat is a VR rhythm game where players physically hit targets synchronized with music beats. Features include a custom level editor allowing players to create their own levels or generate automatic levels with varying difficulties. Built with Unity and C#, the game combines music rhythm mechanics with physical VR interaction.
+          Immersive VR rhythm experience featuring physical strike mechanics synced to music, custom level editor & procedural difficulty generation. Built in Unity (C#) with extensible architecture for future multiplayer & community modding.
         </p>
-        <div class="project-tags">
-          <span>Unity</span>
-          <span>C#</span>
-          <span>3D Modeling</span>
+        <div class="project-tags stagger">
+          <span>Unity</span><span>C#</span><span>VR</span><span>Game Design</span>
         </div>
       </div>
     </section>
 
-  
+    <!-- RESUME / PROFILE SECTION -->
+    <section class="resume-section animate-on-scroll" id="resume">
+      <h2 class="section-title"><i class="fas fa-user"></i> Profile & Resume</h2>
+      <div class="resume-grid">
+        <div class="resume-block">
+          <h3><i class="fas fa-id-card"></i> Profile</h3>
+          <p style="font-size:.9rem;color:#444;line-height:1.5;">
+            B.Sc. Computer Science (final year) & M.Sc. Financial Mathematics (in progress) with hands‑on delivery of data analytics, AI integration and full‑stack products. Built production platforms (financial analysis, AI media studio) emphasizing security, conversion, measurement & scalability.
+          </p>
+          <div class="tag-cloud">
+            <span>Full Stack</span><span>AI Integration</span><span>FinTech</span><span>Cyber</span><span>Growth Mindset</span>
+          </div>
+        </div>
+        <div class="resume-block">
+          <h3><i class="fas fa-briefcase"></i> Experience</h3>
+          <ul>
+            <li><strong>Risk Management & Compliance Student – CYBER IEC</strong> (2023–2024): Policies, OT risk assessments, frameworks for critical infrastructure.</li>
+            <li><strong>Product Builder (Independent)</strong>: Architected & launched KesefAI + ResumEd (monetized, analytics‑driven).</li>
+          </ul>
+        </div>
+        <div class="resume-block">
+          <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+          <ul>
+            <li>B.Sc. Computer Science – University of Haifa (2022–2025). GPA Track incl. ML, DL, Security, Networks, DS, OOP.</li>
+            <li>M.Sc. Financial Mathematics – Bar Ilan (2025– ) Specialization FinTech.</li>
+            <li>Psychometric: 709.</li>
+          </ul>
+        </div>
+        <div class="resume-block">
+          <h3><i class="fas fa-tools"></i> Technical Skills</h3>
+          <div class="tag-cloud">
+            <span>Python</span><span>C++</span><span>Flask</span><span>React</span><span>Firebase</span><span>Git</span><span>Pandas</span><span>NumPy</span><span>PyTorch</span><span>AI System Design</span><span>Prompt Eng.</span><span>Analytics</span>
+          </div>
+        </div>
+        <div class="resume-block">
+          <h3><i class="fas fa-hands-helping"></i> Volunteering</h3>
+          <div class="vol-card">
+            LATET (2020–2025): Coordinated logistics & distribution for humanitarian aid to hundreds of Holocaust survivors; supervised 120+ volunteers monthly.
+          </div>
+          <div class="vol-card">
+            Military Service – Artillery Corps (Combat Soldier, 2016–2018).
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -711,5 +956,71 @@
       <p>© 2024 Edward Moiseev. All rights reserved.</p>
     </div>
   </footer>
+
+  <script>
+    // Intersection Observer for scroll animations & stagger
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.classList.add('in-view');
+          if(e.target.classList.contains('project-card')){
+            // animate feature list inside
+            const feats = e.target.querySelectorAll('.feature-list li');
+            feats.forEach(li=>{li.style.animationPlayState='running';});
+          }
+          io.unobserve(e.target); // fire once
+        }
+      })
+    },{threshold:.15});
+
+    document.querySelectorAll('.animate-on-scroll, .stagger').forEach(el=>io.observe(el));
+
+    // Gallery Slider Logic
+    (function(){
+      const galleries = document.querySelectorAll('.project-gallery');
+      const touch = 'ontouchstart' in window;
+      galleries.forEach(gal => {
+        const slides = Array.from(gal.querySelectorAll('.slide'));
+        const prevBtn = gal.querySelector('.proj-nav-btn.prev');
+        const nextBtn = gal.querySelector('.proj-nav-btn.next');
+        const dotsWrap = gal.querySelector('.proj-dots');
+        const progress = gal.querySelector('.proj-progress-bar');
+        let index = 0; let timer = null; const autoMs = parseInt(gal.dataset.autoplay||'6500');
+
+        // Create dots
+        slides.forEach((_,i)=>{
+          const b=document.createElement('button');
+          if(i===0) b.classList.add('active');
+          b.addEventListener('click',()=>go(i,true));
+          dotsWrap.appendChild(b);
+        });
+        const dots = Array.from(dotsWrap.children);
+
+        function setActive(i){
+          slides.forEach((s,si)=>{s.classList.toggle('active',si===i);});
+          dots.forEach((d,di)=>d.classList.toggle('active',di===i));
+          index=i;
+          progress.style.transition='none';progress.style.width='0%';
+          requestAnimationFrame(()=>{requestAnimationFrame(()=>{progress.style.transition=`width ${autoMs}ms linear`;progress.style.width='100%';});});
+        }
+        function next(){go((index+1)%slides.length);} 
+        function prev(){go((index-1+slides.length)%slides.length);} 
+        function go(i,manual=false){if(i===index) return; setActive(i); if(manual) restart();}
+        function restart(){clearInterval(timer); timer=setInterval(next,autoMs);}        
+        // Autoplay
+        restart();
+        gal.addEventListener('mouseenter',()=>clearInterval(timer));
+        gal.addEventListener('mouseleave',()=>restart());
+        prevBtn.addEventListener('click',prev); nextBtn.addEventListener('click',next);
+        // Keyboard focus navigation
+        gal.setAttribute('tabindex','0');
+        gal.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){next();} else if(e.key==='ArrowLeft'){prev();}});
+        // Swipe support
+        if(touch){let sx=0,dx=0,sy=0; gal.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY;},{passive:true});
+          gal.addEventListener('touchmove',e=>{dx=e.touches[0].clientX - sx;},{passive:true});
+          gal.addEventListener('touchend',()=>{if(Math.abs(dx)>40){dx<0?next():prev();} dx=0;});}
+      });
+    })();
+  </script>
 </body>
 </html>
